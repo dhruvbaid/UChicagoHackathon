@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Leaf</title>
+
+    <!-- favicon-->
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn.glitch.com/b5754465-3a1d-4b1f-a606-a0454960aba7%2FLeaf_Logo.png?v=1608169523295"
+    />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" type="text/css" src="style.css"/>
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script1.js" defer></script>
+    <script src="/js/materialize.js" defer></script>
+    <script src="/js/materialize.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- import social media footer -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- header.logo -->
+    <header class="header" id="myHeader">
+      <!-- nav bar -->
+      <nav>
+        <img
+          src="https://cdn.glitch.com/b5754465-3a1d-4b1f-a606-a0454960aba7%2FLeaf_Logo.png?v=1608169523295"
+          alt="leaf logo"
+          class="logo"
+        />
+      </nav>
+    </header>
+
+    <img
+      src="https://cdn.glitch.com/b5754465-3a1d-4b1f-a606-a0454960aba7%2F255c9669-2b88-46f9-965d-01c1a427d34a.image.png?v=1608169909089"
+      alt="happy bear introducing image segmentation"
+      class="bear-happy"
+    />
+    
+    <div class="bottom-right">
+      <div class="buttons">
+        <form action="/input" method="post" enctype="multipart/form-data">
+          <div class="container1">
+            <label class="btn effect01">
+              <input
+                type="file"
+                name="fileUpload"
+                id="fileUpload"
+                accept="image/*"
+                style="display:none"
+              />
+              <span>Select File</span>
+            </label>
+          </div>
+          <div class="container">
+            <!--<a href="/image-continue.html" class="btn effect01">-->
+            <label class="btn effect01">
+              <input type="submit" name="submit" value="submit" class="btn effect01" style="display:none"/>
+              <span>Submit</span>
+            </label>
+            <!--</a>-->
+          </div>
+        </form>
+        {% if fooResponse is not none %}
+        <ul>
+            {% for item in fooResponse %}
+            <li>{{item}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+    <style>
+        body {
+            background-color: #6993C0;
+          }
+          .logo {
+            height: 15% !important;
+            position: absolute;
+            /*top: 8px;*/
+            top: 2%;
+            /*left: 16px;*/
+            left: 0.5%;
+          }
+          
+          .bear-happy {
+            height: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .bear-image {
+            height: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          
+          #myFile {
+            position: absolute;
+            bottom: 130px;
+            right: 0px;
+            padding-bottom: 20px;
+          }
+          
+          .buttons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            /*   padding: 2em 0em; */
+          }
+          
+          .container {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 8px;
+            right: 16px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #6993C0;
+            padding: 40px 0px;
+            width: 240px;
+          }
+          
+          .container1 {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 100px;
+            right: 16px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #6993C0;
+            padding: 40px 0px;
+            width: 240px;
+          }
+          
+          .container2 {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 50%;
+            right: 22%;
+            font-size: 18px;
+            text-align: center;
+            background-color: #FFF;
+            /*padding: 40px 0px;*/
+            width: 240px;
+          }
+          
+          .container3 {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 10%;
+            right: 8%;
+            font-size: 18px;
+            text-align: center;
+            background-color: #6993C0;
+            padding: 0px 0px;
+            width: 240px;
+          }
+          
+          .container4 {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 55%;
+            left: 15%;
+            font-size: 18px;
+            text-align: center;
+            background-color: #6993C0;
+            padding: 0px 0px;
+            width: 240px;
+          }
+          
+          .container5 {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 59%;
+            right: 20%;
+            font-size: 18px;
+            text-align: center;
+            background-color: #6993C0;
+            padding: 0px 0px;
+            width: 240px;
+          }
+          
+          .container6 {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 3%;
+            right: 3%;
+            font-size: 18px;
+            text-align: center;
+            background-color: #6993C0;
+            padding: 0px 0px;
+            width: 240px;
+          }
+          
+          
+          .btn {
+            font-family: "Open Sans", sans-serif;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 45px;
+            max-width: 500px;
+            position: relative;
+            text-decoration: none;
+            text-transform: uppercase;
+            width: 100%;
+          }
+          .btn:hover {
+            text-decoration: none;
+          }
+          
+          /*btn_background*/
+          .effect01 {
+            color: #FFF;
+            border: 4px solid #5E4D46;
+            box-shadow: 0px 0px 0px 1px #000 inset;
+            background-color: #5E4D46;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+          }
+          .effect01:hover {
+            border: 4px solid #666;
+            background-color: #FFF;
+            box-shadow: 0px 0px 0px 4px #EEE inset;
+          }
+          
+          /*btn_text*/
+          .effect01 span {
+            transition: all 0.2s ease-out;
+            z-index: 2;
+          }
+          .effect01:hover span {
+            letter-spacing: 0.13em;
+            color: #333;
+          }
+          
+          /*highlight*/
+          .effect01:after {
+            background: #FFF;
+            border: 0px solid #000;
+            content: "";
+            height: 155px;
+            left: -75px;
+            opacity: 0.8;
+            position: absolute;
+            top: -50px;
+            -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
+            width: 50px;
+            transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1); /*easeOutCirc*/
+            z-index: 1;
+          }
+          .effect01:hover:after {
+            background: #FFF;
+            border: 20px solid #000;
+            opacity: 0;
+            left: 120%;
+            -webkit-transform: rotate(40deg);
+            transform: rotate(40deg);
+          }
+          
+          .bear-big {
+            height: 50%;
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+          }
+          
+          .bear-message-left {
+            height: 70%;
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+          }
+          
+          .bear-message-right {
+            height: 70%;
+            position: absolute;
+            bottom: 10%;
+            right: 16px;
+          }
+          
+          .bear-bubble {
+            height: 50%;
+            position: absolute;
+            top: 40%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            transition: 3s;
+          }
+          
+          .bear-bubble1 {
+            height: 80%;
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            transform: translate(-3%, 15%);
+          }
+          
+          
+          .bear-bubble-fade {
+            height: 50%;
+            position: absolute;
+            top: 40%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .fade-in {
+            opacity: 1;
+            animation-name: fadeInOpacity;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-in;
+            animation-duration: 1s;
+          }
+          
+          @keyframes fadeInOpacity {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          
+          .fade-out {
+            opacity: 0;
+            animation-name: fadeOutOpacity;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-out;
+            animation-duration: 1s;
+          }
+          
+          @keyframes fadeOutOpacity {
+            0% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+            }
+          }
+          
+          .img-room {
+            height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.5;
+          }
+          
+          .img-room-end {
+            height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .circle-nest {
+            height: 20%;
+            position: absolute;
+            top: 43%;
+            left: 26%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .circle-nest-select {
+            height: 10%;
+            position: absolute;
+            top: 42%;
+            left: 26%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .circle-light {
+            height: 20%;
+            position: absolute;
+            top: 48%;
+            left: 26%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .circle-waterbottle {
+            height: 40%;
+            position: absolute;
+            top: 77%;
+            left: 53%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .circle-fridge {
+            height: 30%;
+            position: absolute;
+            top: 64%;
+            left: 56%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .circle-tv {
+            height: 40%;
+            position: absolute;
+            top: 62%;
+            left: 78%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .book-flip {
+            height: 70%;
+            border: 5px solid #FFF;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .scared-bear {
+            height: 50%;
+            position: absolute;
+            bottom: 0%;
+            left: 5%;
+          }
+          
+          .title-carbon {
+            height: 20%;
+            position: absolute;
+            top: 10%;
+            right: 10%;
+          }
+          
+          .text-carbon {
+            font-family: "Open Sans", sans-serif;
+            color: #FFF;
+            font-size: 60px;
+            font-weight: 300;
+            height: 20%;
+            position: absolute;
+            top: 28%;
+            left: 48%;
+          }
+          
+          .text-carbon1 {
+            font-family: "Open Sans", sans-serif;
+            color: #FFF;
+            font-size: 30px;
+            font-weight: 300;
+            height: 20%;
+            position: absolute;
+            top: 40%;
+            left: 48%;
+          }
+          
+          .base-room {
+            height: 1008px;
+            width: 1791px;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            margin: 0;
+          }
+          
+          .fridge-closed {
+            height: 67%;
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+          }
+          .fridge-open {
+            height: 80%;
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            transform: translate(0%, 7%);
+          }
+          .ac-heater {
+            height: 35%;
+            position: absolute;
+            top: 5%;
+            left: 35%;
+          }
+          
+          .car {
+            height: 40%;
+            position: absolute;
+            bottom: 0%;
+            left: 40%;
+            transform: translate(0%, 16%);
+          }
+          
+          .light {
+            height: 30%;
+            position: absolute;
+            bottom: 15%;
+            right: 20%;
+          }
+          
+          .washer-dryer {
+            height: 60%;
+            position: absolute;
+            bottom: 0%;
+            right: 0%;
+            transform: translate(16%, 0%);
+          }
+          
+          .opacity {
+            opacity: 0.5;
+          }
+          
+          .food-text {
+            height: 105%;
+            position: absolute;
+            bottom: 0%;
+            right: 5%;
+            transform: translate(16%, 0%);
+          }
+          
+          .food-text1 {
+            font-family: "Open Sans", sans-serif;
+            color: #000;
+            font-size: 30px;
+            font-weight: 300;
+            position: absolute;
+            top: 25%;
+            right: 31%;
+            transform: translate(16%, 0%);
+          }
+          
+          .food-text2 {
+            font-family: "Open Sans", sans-serif;
+            color: #000;
+            font-size: 30px;
+            font-weight: 300;
+            position: absolute;
+            top: 25%;
+            right: 33%;
+            transform: translate(16%, 0%);
+          }
+          
+          .house {
+            height: 20%;
+            position: absolute;
+            top: 35%;
+            right: 33%;
+          }
+          
+          .dot1 {
+            height: 10%;
+            position: absolute;
+            top: 50%;
+            right: 28%;
+          }
+          
+          .dot2 {
+            height: 10%;
+            position: absolute;
+            top: 50%;
+            right: 26%;
+          }
+          
+          .dot3 {
+            height: 10%;
+            position: absolute;
+            top: 50%;
+            right: 24%;
+          }
+          
+          .meat-dairy {
+            height: 20%;
+            position: absolute;
+            top: 38%;
+            right: 33%;
+          }
+          
+          .plate {
+            height: 18%;
+            position: absolute;
+            top: 34%;
+            right: 43%;
+          }
+          
+          .plastic {
+            height: 18%;
+            position: absolute;
+            top: 34%;
+            right: 33%;
+          }
+          
+          .waterbottle {
+            height: 18%;
+            position: absolute;
+            top: 34%;
+            right: 25%;
+          }
+          
+          .bear-bye {
+            height: 70%;
+            position: absolute;
+            bottom: 0%;
+            right: 5%;
+          }
+          
+          .ending-text {
+            font-family: "Open Sans", sans-serif;
+            color: #FFF;
+            font-size: 30px;
+            font-weight: 300;
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            transform: translate(16%, 0%);
+          }
+          
+          .ending-text2 {
+            font-family: "Open Sans", sans-serif;
+            color: #FFF;
+            font-size: 30px;
+            font-weight: 300;
+            position: absolute;
+            top: 30%;
+            left: 9%;
+            transform: translate(16%, 0%);
+          }
+          
+          .pawprint-header {
+            position: absolute;
+            top: 0%;
+            left: 10%;
+          }
+          
+          .api-firebase{
+            height: 85%;
+            width: 100%;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+    </style>
+  </body>
+</html>
+

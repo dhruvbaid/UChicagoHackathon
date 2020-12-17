@@ -2,7 +2,7 @@ body {
   background-color: #6993C0;
 }
 .logo {
-  height: 15%;
+  height: 15% !important;
   position: absolute;
   /*top: 8px;*/
   top: 2%;
@@ -588,3 +588,4 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
