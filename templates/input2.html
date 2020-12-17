@@ -1,75 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics 
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-174246777-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-174246777-1");
-    </script>
-    -->
-    
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Leaf</title>
-
     <!-- favicon-->
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://cdn.glitch.com/b5754465-3a1d-4b1f-a606-a0454960aba7%2FLeaf_Logo.png?v=1608169523295"
-    />
-
+    <link rel="icon"
+          type="image/png"
+          href="https://cdn.glitch.com/b5754465-3a1d-4b1f-a606-a0454960aba7%2FLeaf_Logo.png?v=1608169523295" />
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
-
+    <link rel="stylesheet" type="text/css" src="/static/style.css" />
     <!-- import the webpage's javascript file -->
-    <script src="/script1.js" defer></script>
-    <script src="/js/materialize.js" defer></script>
-    <script src="/js/materialize.min.js" defer></script>
+    <script src="/static/script1.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <!-- import social media footer -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
-  <body>
-    <center>
-      <img
-        src="https://cdn.glitch.com/b5754465-3a1d-4b1f-a606-a0454960aba7%2FIMG_0550.JPG?v=1608177554114"
-        alt="bryan's room"
-        class="img-room"
-      />
-    </center>
-    <img
-      src="https://cdn.glitch.com/b5754465-3a1d-4b1f-a606-a0454960aba7%2FHappy_Bear.png?v=1608175942168"
-      alt="cute bear!;)"
-      class="bear-big"
-    />
-
-    <div class="fade-in">
-      <img
-        src="https://cdn.glitch.com/b5754465-3a1d-4b1f-a606-a0454960aba7%2F835e17f4-edc2-4eb4-b867-c6a16b79fe50.image.png?v=1608177088927"
-        alt="tap the blue circles!"
-        class="bear-bubble"
-      />
-      <div class="container2">
-        <a href="/image-seg-mid.html" class="fade-in btn effect01"
-          ><span>Continue</span></a
-        >
-      </div>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+    <!-- header.logo -->
+    <header class="header" id="myHeader">
+        <!-- nav bar -->
+        <nav>
+            <img src="https://cdn.glitch.com/b5754465-3a1d-4b1f-a606-a0454960aba7%2FLeaf_Logo.png?v=1608169523295"
+                 alt="leaf logo"
+                 class="logo" />
+        </nav>
+    </header>
+    <!-- <img src="https://cdn.glitch.com/b5754465-3a1d-4b1f-a606-a0454960aba7%2F255c9669-2b88-46f9-965d-01c1a427d34a.image.png?v=1608169909089"
+         alt="happy bear introducing image segmentation"
+         class="bear-happy" /> -->
+    
+    <!-- These are the bullet points which the user sees (or plain text if no labels match) -->
+    <!-- <div class="text-position"> -->
+        <!-- <div class="buttons"> -->
+            {% if fooResponse is not none %}
+            <ul class="text-position">
+                {% for item in fooResponse %}
+                <li>{{item}}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                Nothing to see!
+            {% endif %}
+        <!-- </div> -->
+    <!-- </div> -->
+    
+    <!-- This is the Continue button which currently links back to /input -->
+    <div class="buttons">
+        <div class="container">
+            <a href="/image-seg-beg.html" class="btn effect01"><span>Continue</span></a>
+        </div>
     </div>
 
     <style>
@@ -670,10 +652,9 @@
             font-size: 30px;
             font-weight: 300;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(50%, 50%);
+            top: 20%;
+            left: 5%;
           }
     </style>
-  </body>
+</body>
 </html>

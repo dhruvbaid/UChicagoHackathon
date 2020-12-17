@@ -10,10 +10,11 @@ app = Flask(__name__)
 @app.route('/')
 def landing():
     # this is where we want to put our landing page (in t1.html, for example)
-    return render_template("t1.html", name = "Dhruv")
+    return render_template("index.html")
 
-@app.route('/input', methods=['GET', 'POST'])
+@app.route('/input.html', methods=['GET', 'POST'])
 def user_input():
+
     # if we are loading the form without any submissions, simply show the form
     if request.method == "GET":
         return render_template("input.html")
@@ -59,6 +60,7 @@ def user_input():
                    "Ceiling Fan": ceilingFanMessage,
                    "Flower, Blossom, Plant, Flower Arrangement": plantMessage,
                    "Wheel, Bicycle, Transportation, Vehicle": transportMessage}
+
         itemsWithInfo = []
 
         for itemName in names:
@@ -67,5 +69,18 @@ def user_input():
                     if allInfo[itemInfo] not in itemsWithInfo:
                         itemsWithInfo.append(allInfo[itemInfo])
                     break
+        
+        print(f"Items with Info = {itemsWithInfo}")
+        
+        if len(itemsWithInfo) == 0:
+            itemsWithInfo = None
 
-        return render_template("input.html", fooResponse = itemsWithInfo)
+        # input2.html is what the user sees AFTER clicking submit
+        return render_template("input2.html", fooResponse = itemsWithInfo)
+
+
+
+@app.route('/<path:subpath>')
+def doThis(subpath):
+    if subpath not in ["input", "input.html", "", "input2", "input2.html"]:
+        return render_template(subpath)
