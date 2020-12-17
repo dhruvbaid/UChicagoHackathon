@@ -1,0 +1,13 @@
+<!doctype html>
+
+<html>
+    <body>
+        <form action = "/input" method = "post" enctype = "multipart/form-data">
+            <input type = "file" name = "fileUpload" id = "fileUpload" accept = "image/*">
+            <input type = "submit" name = "submit" value = "submit">
+        </form>
+        {% if fooResponse is not none %}
+            {{ fooResponse }}
+        {% endif %}
+    </body>
+</html>
