@@ -1,1 +1,3 @@
 Flask
+AWS (and boto3 Library for Python)
+PIL Library for Python
